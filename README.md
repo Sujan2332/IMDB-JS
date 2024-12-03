@@ -1,6 +1,6 @@
 # *🎬 IMDb JS - Movie Search Web App 🚀*
 
-## *Welcome to the IMDb JS project! An immersive Movie Search Web App that brings the magic of movies, series, and episodes right to your fingertips. Powered by the OMDb API, this app allows you to explore movie details, discover new films, and navigate results with ease. Whether you’re looking for that latest blockbuster or a classic series, you’re in the right place!*
+### *Welcome to the IMDb JS project! An immersive Movie Search Web App that brings the magic of movies, series, and episodes right to your fingertips. Powered by the OMDb API, this app allows you to explore movie details, discover new films, and navigate results with ease. Whether you’re looking for that latest blockbuster or a classic series, you’re in the right place!*
 
 ## *🌟 Features*
 
