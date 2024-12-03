@@ -1,0 +1,110 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
+body{
+    /* border: 2px solid red; */
+    height: 855px;
+    background: linear-gradient(300deg,grey ,black 55%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+
+}
+#heading{
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 900;
+    font-size: 45px;
+    /* border: 2px solid yellow; */
+    width: 29%;
+    text-align: center;
+    border-radius: 5%;
+    background-color: #E2B616;
+    /* margin-left: 40px; */
+    cursor: pointer;
+    color: black;
+    margin-bottom: 20px;
+    transition: 0.3s ease-in-out;
+}
+
+#heading:hover{
+    transform: scale(1.05);
+}
+form{
+    /* border: 2px solid red; */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 750px;
+    width: 450px;
+    gap: 10px;
+    border-radius: 15px;
+    transition: 0.3s ease-in-out;
+}
+form:hover{
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    transform: translateY(-10px);
+
+}
+
+button {
+    border:2px solid white;
+    margin: 10px;
+    padding: 12px 25px;
+    background-color: #da200f;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+    font-size: 13px;
+
+}
+
+button:hover {
+    background-color: #ff3d3d;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+input{
+    padding: 12px;
+    width: 245px;
+    margin: 30px 0;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+    font-weight: 500;
+    /* font-size: 26px; */
+    /* position: absolute; */
+    /* margin-bottom: 80px; */
+    /* margin-left: 500px; */
+    /* height: 65px; */
+    margin-top: -3px;
+
+}
+
+input:hover{
+    /* transform: translatex(-10px); */
+    transform: scale(1.05);
+    color: black;
+    /* font-size: 15px; */
+}
+
+h2{
+    margin-bottom: 20px;
+}
+
+label{
+    text-decoration: underline;
+    font-size: 15px;
+}

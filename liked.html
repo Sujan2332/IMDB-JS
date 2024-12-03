@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liked Movies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Your Liked Movies</h1>
+    <section id="likedMovies"></section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const likedMovies = JSON.parse(localStorage.getItem('likedMovies')) || [];
+            const likedMoviesSection = document.getElementById('likedMovies');
+
+            if (likedMovies.length === 0) {
+                likedMoviesSection.innerHTML = '<p>No liked movies yet.</p>';
+            } else {
+                likedMovies.forEach(movie => {
+                    let movieCard = document.createElement('div');
+                    movieCard.className = 'movie-card';
+
+                    let title = document.createElement('h1');
+                    title.textContent = movie.Title;
+                    movieCard.append(title);
+
+                    let poster = document.createElement('img');
+                    poster.src = movie.Poster === "N/A" ? "https://media.tenor.com/IHdlTRsmcS4AAAAM/404.gif" : movie.Poster;
+                    poster.alt = movie.Title;
+                    poster.width = 100;
+                    poster.height = 100;
+                    movieCard.append(poster);
+
+                    let year = document.createElement('h5');
+                    year.textContent = movie.Year;
+                    movieCard.append(year);
+
+                    let id = document.createElement('h6');
+                    id.innerText = `IMDB ID : ${movie.imdbID}`;
+                    movieCard.append(id);
+
+                    likedMoviesSection.append(movieCard);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

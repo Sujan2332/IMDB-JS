@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search App</title>
+    <style>
+        *{
+            font-family: "Edu AU VIC WA NT Hand", cursive;
+        }
+        body {
+            font-family: "Edu AU VIC WA NT Hand", cursive;
+            font-family: "Edu AU VIC WA NT Hand", serif;
+            background: linear-gradient(285deg, red , black 50%);
+            color: white;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        #search-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+        input, select {
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 0px 25px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 19px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ff1e63;
+        }
+        #omdbMovies {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+
+        }
+        .movie-card {
+            background-color: #ffffff;  /* Dark gray for the card background */
+            margin: 10px;
+            margin-bottom: 30px;
+            padding: 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.3s;
+            width: 320px;  /* Set width of the card */
+            height: 550px;  /* Set height of the card */
+            overflow: hidden;  /* Prevent overflow */
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+            color: black;  /* Add shadow for depth */
+        }
+        .movie-card:hover {
+            transform: scale(1.05);
+        }
+        #pagination {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .page-button {
+            background-color: gold;
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 20px;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: 400;
+        }
+        .page-button:hover {
+            background-color: red;
+        }
+        .active {
+            background-color: red;
+        }
+        /* Modal Styles */
+        #modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        #modal-content {
+            background-color:gold;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            color: black;
+            border-radius: 10px;
+            text-align: center;
+        }
+        #close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        #close-btn:hover,
+        #close-btn:focus {
+            color: red;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        img {
+            /* max-width: 100%; */
+            height: 400px;
+            border-radius: 5px;
+            border-radius: 15px;
+        }
+        title{
+            font-size: 10px;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Edu+VIC+WA+NT+Beginner:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div>
+    <nav style="background: linear-gradient(285deg, grey, black 30%);padding: 10px;">
+        <div style="height: 65px;width: 110px;text-align: center;padding-top: 0.5px ;border-radius: 5px;background-color: gold;color: black;font-weight: 600px;">
+        <h2 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;font-size: 40px;margin-top: 10px;">IMDb</h2>
+    </div>
+    </nav>
+</div>
+<div id="search-container">
+    <input type="text" id="searchbox" placeholder="Search for a movie..." onkeyup="fetchSuggestions()">
+    <input type="text" id="yearbox" placeholder="Year (e.g., 2023)">
+    <div>
+    <select id="typebox">
+        <option value="">All Types</option>
+        <option value="movie">Movie</option>
+        <option value="series">Series</option>
+    </select>
+</div>
+    <button onclick="getmovies()">Search</button>
+</div>
+
+<div id="suggestions"></div>
+<div id="omdbMovies"></div>
+<div id="pagination"></div>
+
+<!-- Modal -->
+<div id="modal">
+    <div id="modal-content">
+        <span id="close-btn">&times;</span>
+        <h2 id="modal-title"></h2>
+        <img id="modal-poster" alt="Movie Poster" style="border: 30px solid white;">
+        <p><strong>Year:</strong> <span id="modal-year"></span></p>
+        <p><strong>IMDB ID:</strong> <span id="modal-imdbID"></span></p>
+        <p><strong>Description:</strong> <span id="modal-description"></span></p>
+    </div>
+</div>
+
+<script>
+let search = document.getElementById("searchbox");
+let year = document.getElementById("yearbox");
+let type = document.getElementById("typebox");
+let suggestions = document.getElementById("suggestions");
+let currentPage = 1; // Track the current page
+let totalResults = 0; // Track the total number of results
+let pagesPerSet = 10; // Number of pages to display per set
+let currentPageSet = 1; // Track the current set of pages
+
+async function getmovies(page = 1) {  // Add page as an argument
+    let query = `https://www.omdbapi.com/?apikey=70731d2&page=${page}`;  // Include page parameter
+
+    if (search.value) {
+        query += `&s=${search.value}`;
+    }
+    if (year.value) {
+        query += `&y=${year.value}`;
+    }
+    if (type.value) {
+        query += `&type=${type.value}`;
+    }
+
+    let response = await fetch(query);
+    let movies = await response.json();
+    let omdbMovies = document.getElementById("omdbMovies");
+    omdbMovies.innerHTML = '';  // Clear previous results
+
+    if (movies.Search) {
+        totalResults = parseInt(movies.totalResults);  // Get total number of results
+        movies.Search.map((movie) => {
+            let movieCard = document.createElement('div');
+            movieCard.className = 'movie-card';
+
+            let title = document.createElement('h3');
+            title.textContent = movie.Title;
+            movieCard.append(title);
+
+            let poster = document.createElement('img');
+            poster.src = movie.Poster === "N/A" ? "https://media.tenor.com/IHdlTRsmcS4AAAAM/404.gif" : movie.Poster;
+            poster.alt = movie.Title;
+            movieCard.append(poster);
+
+            let year = document.createElement('h5');
+            year.textContent = movie.Year;
+            movieCard.append(year);
+
+
+            // Show modal on click
+            movieCard.addEventListener('click', () => showModal(movie));
+
+            omdbMovies.append(movieCard);
+        });
+
+        // Display pagination if more than 10 results
+        if (totalResults > 10) {
+            createPagination(totalResults);
+        }
+    } else {
+        omdbMovies.innerHTML = `<p style="color:white">No results found</p>`;
+        alert("No results found");
+    }
+}
+
+function createPagination(totalResults) {
+    let totalPages = Math.ceil(totalResults / 10);  // Calculate the total number of pages
+    let pagination = document.getElementById('pagination');
+    pagination.innerHTML = '';  // Clear previous pagination
+
+    // Create "Previous" button
+    let prevButton = document.createElement('button');
+    prevButton.textContent = '<';
+    prevButton.className = 'page-button';
+    prevButton.disabled = currentPageSet === 1;  // Disable if we're on the first set
+    prevButton.addEventListener('click', () => {
+        if (currentPageSet > 1) {  // Ensure we don't go below 1
+            currentPageSet--;
+            currentPage = (currentPageSet - 1) * pagesPerSet + 1;  // Adjust currentPage to the first page of the previous set
+            renderPageNumbers(totalPages);
+            getmovies(currentPage);  // Fetch the movies for the first page of the previous set
+        }
+    });
+    pagination.append(prevButton);
+
+    // Create page number buttons
+    renderPageNumbers(totalPages);  // Only render the page numbers, not navigation buttons
+
+    // Create "Next" button
+    let nextButton = document.createElement('button');
+    nextButton.textContent = '>';
+    nextButton.className = 'page-button';
+    nextButton.disabled = currentPageSet * pagesPerSet >= totalPages;  // Disable if we're on the last set
+    nextButton.addEventListener('click', () => {
+        if (currentPageSet * pagesPerSet < totalPages) {  // Ensure we don't exceed the total pages
+            currentPageSet++;
+            currentPage = (currentPageSet - 1) * pagesPerSet + 1;  // Adjust currentPage to the first page of the next set
+            renderPageNumbers(totalPages);
+            getmovies(currentPage);  // Fetch the movies for the first page of the next set
+        }
+    });
+    pagination.append(nextButton);
+}
+
+function renderPageNumbers(totalPages) {
+    let pagination = document.getElementById('pagination');
+    let pageButtons = document.createElement('div');
+
+    for (let i = 1; i <= totalPages; i++) {
+        let pageButton = document.createElement('button');
+        pageButton.textContent = i;
+        pageButton.className = 'page-button' + (i === currentPage ? ' active' : '');
+        pageButton.addEventListener('click', () => {
+            currentPage = i;  // Update current page
+            getmovies(currentPage);  // Fetch movies for the selected page
+        });
+        pageButtons.appendChild(pageButton);
+    }
+    pagination.appendChild(pageButtons);
+}
+
+function fetchSuggestions() {
+    // Implement suggestion fetching logic if needed
+}
+
+function showModal(movie) {
+    document.getElementById("modal-title").innerText = movie.Title;
+    document.getElementById("modal-year").innerText = movie.Year;
+    document.getElementById("modal-imdbID").innerText = movie.imdbID;
+    document.getElementById("modal-poster").src = movie.Poster;
+    document.getElementById("modal-description").innerText = "Description: " + (movie.Plot || "N/A");
+    document.getElementById("modal").style.display = "block";  // Show the modal
+}
+
+// Close modal on clicking the close button
+document.getElementById("close-btn").onclick = function() {
+    document.getElementById("modal").style.display = "none";  // Hide the modal
+}
+
+// Close modal when clicking outside of the modal content
+window.onclick = function(event) {
+    if (event.target === document.getElementById("modal")) {
+        document.getElementById("modal").style.display = "none";  // Hide the modal
+    }
+}
+</script>
+</body>
+</html>

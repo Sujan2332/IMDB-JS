@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMDB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="./style.css">
+<style>
+    .page-button{
+        background-position: 0 -45px;
+        transition: background-position 0.5s;
+    }
+    .page-button.active{
+        background-position: 0 0;
+    } 
+</style>
+</head>
+<body>
+    <nav ><h1 id="heading" onclick="home()">IMDb</h1>
+        <h2 id="welcome-message" ></h2>
+        <a href="./user.html" style="color: red;margin-left: 40px;font-size: 20px;font-weight: 900;border: 2px solid white;padding: 10px;border-radius: 35px;background-color: white;">Signup/Login?</a>
+    </nav>
+    <input type="text" id="searchbox" placeholder="Search for movies...">
+    <input type="text" id="yearbox" placeholder="Year (optional)">
+    <select id="typebox">
+        <option value="">Type</option>
+        <option value="movie">Movie</option>
+        <option value="series">Series</option>
+        <option value="episode">Episode</option>
+    </select>
+    <div id="suggestions"></div>
+    <button onclick="getmovies()">Search</button>
+    <div class="block">
+    <section id="omdbMovies">
+    </section>
+    
+    <div id="pagination" style="flex-direction: column;height: 800px;justify-content: space-evenly;margin-right: 40px;"></div>
+    </div>
+    <script src="./app.js"></script>
+</body>
+</html>

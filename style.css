@@ -1,0 +1,363 @@
+body {
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+    background: linear-gradient(to right, #4c4b4a 0%, #000000 100%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#searchbox {
+    padding: 12px;
+    width: 900px;
+    margin: 30px 0;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+    font-weight: 500;
+    font-size: 26px;
+    /* position: relative; */
+    height: 60px;
+
+}
+
+input{
+    padding: 12px;
+    width: 245px;
+    margin: 30px 0;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+    font-weight: 500;
+    font-size: 26px;
+    /* position: absolute; */
+    /* margin-bottom: 80px; */
+    margin-left: 500px;
+    /* height: 65px; */
+    margin-top: -105px;
+
+}
+
+select{
+    padding: 12px;
+    width: 150px;
+    margin-top: -100px;
+    margin-left: 765px;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
+    transition: all 0.3s ease-in-out;
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+    font-weight: 500;
+    font-size: 26px;
+    /* position: absolute; */
+    height: 70px;
+
+}
+
+input:focus {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+select:focus {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+#searchbox:focus {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+nav{
+    /* border: 2px solid red; */
+    height: 100px;
+    width: 100%;
+    background: linear-gradient(to right, #000000 50%, #4c4b4a 100% );
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+#heading{
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 900;
+    font-size: 45px;
+    /* border: 2px solid yellow; */
+    width: 9%;
+    text-align: center;
+    border-radius: 5%;
+    background-color: #E2B616;
+    margin-left: 40px;
+    cursor: pointer;
+}
+
+
+button {
+    border:2px solid white;
+    margin: 10px;
+    padding: 12px 25px;
+    background-color: #da200f;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+    margin-top: 50px;
+    margin-left: 25px;
+    font-size: 20px;
+
+}
+
+button:hover {
+    background-color: #ff3d3d;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+#welcome-message{
+    /* border: 2px solid red; */
+    margin-left: 400px;
+    margin-top: 40px;
+    color: white;
+    /* width: 1000px; */
+    text-align: center;
+    width: 40%;
+}
+#menu{
+    /* border: 2px solid white; */
+    margin-left: 450px; 
+    margin-bottom: 50px;
+}
+#menu:hover{
+    background-color: #da200f;
+}
+#options li{
+    text-decoration: underline;
+}
+
+#omdbMovies {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1300px;
+    /* border: 2px solid red; */
+
+}
+
+.movie-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.movie-card h1 {
+    font-size: 20px;
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.movie-card img {
+    /* border: 2px solid red; */
+    border-radius: 10px;
+    margin-bottom: 15px;
+    width: 80%;
+    /* max-width: 100%; */
+    height: 280px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.movie-card img:hover {
+    transform: scale(1.05);
+}
+
+.movie-card h5 {
+    font-size: 16px;
+    color: #777;
+    margin: 0;
+}
+
+#suggestions {
+    /* border: 2px solid red; */
+    /* border: 1px solid #ccc; */
+    max-height: 200px;
+    overflow-y: auto;
+    /* position: absolute; */
+    background-color: white;
+    width: 200px;
+    /* z-index: 1000; */
+    margin-left: -670px;
+    margin-top: 6px;
+}
+
+#suggestions div {
+    padding: 8px;
+    cursor: pointer;
+}
+
+#suggestions div:hover {
+    background-color: #f0f0f0;
+}
+#details{
+    background: linear-gradient(90deg,#E2B616  30%,#E2B616 100%);
+    background-repeat: repeat;
+    letter-spacing: 1.5px;
+    word-spacing: 3px;
+    text-align: center;
+}
+li{
+    gap: -100px;
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+h1{
+    transition: transform 0.45s ease-in-out;
+}
+h1:hover{
+    transform: scale(1.2);
+
+}
+h2{
+    letter-spacing: 0.5px;
+    margin-bottom: 35px;
+    transition: transform 0.45s ease-in-out;
+}
+h2:hover{
+    transform: scale(1.05);
+}
+
+#movie-details{
+    
+    width: 90%;
+    height: 100%;
+}
+
+h6{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* font-family: 'Roboto Condensed'; */
+    font-weight: 900;
+    color: lightgray;
+    display: none;
+}
+
+img {
+    /* border: 2px solid red; */
+    border-radius: 10px;
+    /* margin-bottom: 15px; */
+    width: auto;
+    /* max-width: 100%; */
+    height: 280px;
+    transition: transform 0.3s ease-in-out;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+#image{
+    /* border: 2px solid red; */
+    width: 245px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    height: 330px;
+    background-color: #000000;
+    margin-left: 560px;
+    transition: transform 0.3s ease-in-out;
+}
+
+#image:hover{
+    transform: scale(1.05);
+}
+
+/* * PAGE INATION */
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+/* Pagination buttons */
+.page-button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 16px;
+    border-radius: 50%;
+    width: 45px;
+    text-align: center;
+}
+
+.page-button:hover {
+    background-color: #666;
+    transform: translateY(-2px);
+}
+
+/* Active page button */
+.page-button.active {
+    background-color: #DA200F;
+    color: white;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .page-button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+/* Pagination container alignment for mobile */
+@media (max-width: 400px) {
+    #pagination {
+        flex-wrap: wrap;
+    }
+}
+
+.block{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pagination{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
