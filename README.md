@@ -4,7 +4,7 @@
 
 ## *🌟 Features*
 
-*Get ready to explore your favorite movies, series, and episodes with a smooth, easy-to-use interface. Here’s what this app has to offer:*
+### *Get ready to explore your favorite movies, series, and episodes with a smooth, easy-to-use interface. Here’s what this app has to offer:*
 
 *🔍 Search for Movies, Series, and Episodes: Find anything by movie title, year, and type.*
 
@@ -18,7 +18,7 @@
 
 ## *💻 Tech Stack*
 
-*This app is built using the following technologies to bring you a fast, responsive, and dynamic experience:*
+### *This app is built using the following technologies to bring you a fast, responsive, and dynamic experience:*
 
 *HTML5: For clear, semantic structure of the app.*
 
