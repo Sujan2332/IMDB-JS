@@ -7,20 +7,28 @@
 *Get ready to explore your favorite movies, series, and episodes with a smooth, easy-to-use interface. Here’s what this app has to offer:*
 
 *🔍 Search for Movies, Series, and Episodes: Find anything by movie title, year, and type.*
+
 *🎬 Filters by Year & Type (Movie, Series, Episode): Narrow down results to your exact preferences.*
+
 *📅 Movie Details: View key information like the movie's title, release year, and IMDb ID.*
+
 *🔢 Pagination: Navigate between multiple pages of search results with ease.*
+
 *💡 Suggestions: Get real-time suggestions as you type, so you never miss out on your favorite films.*
 
 ## *💻 Tech Stack*
 
 *This app is built using the following technologies to bring you a fast, responsive, and dynamic experience:*
 
-*HTML5: For clear, semantic structure of the app.
-CSS3: Used for styling and making sure the app looks good across any device.
-JavaScript: Powers dynamic functionality, allowing you to search and interact with the OMDb API.
-OMDb API: The engine that fetches all the movie data you need.
-Font Awesome: For beautiful icons to enhance the user experience.*
+*HTML5: For clear, semantic structure of the app.*
+
+*CSS3: Used for styling and making sure the app looks good across any device.*
+
+*JavaScript: Powers dynamic functionality, allowing you to search and interact with the OMDb API.*
+
+*OMDb API: The engine that fetches all the movie data you need.*
+
+*Font Awesome: For beautiful icons to enhance the user experience.*
 
 ## *🎥 Live Demo*
 
