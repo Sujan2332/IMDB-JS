@@ -6,7 +6,7 @@ let currentPage = 1; // Track the current page
 let totalResults = 0; // Track the total number of results
 let pagesPerSet = 10; // Number of pages to display per set
 let currentPageSet = 1; // Track the current set of pages
-
+console.log("CHNAGE")
 async function getmovies(page = 1) {  // Add page as an argument
     let query = `https://www.omdbapi.com/?apikey=70731d2&page=${page}`;  // Include page parameter
 
