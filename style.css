@@ -34,11 +34,12 @@ body {
     width: 900px;
     margin: 30px 0;
     border: none;
-    border-radius: 25px;
+    border-radius: 455px;
     outline: none;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
     font-family: "Edu AU VIC WA NT Hand", cursive;
+    /* border: 2px solid red; */
     font-weight: 500;
     font-size: 26px;
     /* position: relative; */
@@ -51,7 +52,7 @@ input{
     width: 245px;
     margin: 30px 0;
     border: none;
-    border-radius: 25px;
+    border-radius: 35px;
     outline: none;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
@@ -60,7 +61,8 @@ input{
     font-size: 26px;
     /* position: absolute; */
     /* margin-bottom: 80px; */
-    margin-left: 500px;
+    margin-left: 570px;
+    border-left: 5px solid black ;
     /* height: 65px; */
     margin-top: -105px;
 
@@ -72,7 +74,7 @@ select{
     margin-top: -100px;
     margin-left: 765px;
     border: none;
-    border-radius: 25px;
+    border-radius: 35px;
     outline: none;
     /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
     transition: all 0.3s ease-in-out;
@@ -81,6 +83,7 @@ select{
     font-size: 26px;
     /* position: absolute; */
     height: 70px;
+    border-left: 5px solid black ;
 
 }
 
@@ -566,11 +569,11 @@ margin-bottom: 0px;
 }
 .movie-card{
     /* border: 2px solid red; */
-    width: 168px;
+    width: 155px;
     padding: 10px;
 }
 .movie-card img{
-    height: 210px;
+    height: 180px;
     margin-bottom: 10px;
 }
 #omdbMovies{
