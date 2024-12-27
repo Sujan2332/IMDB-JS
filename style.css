@@ -569,11 +569,11 @@ margin-bottom: 0px;
 }
 .movie-card{
     /* border: 2px solid red; */
-    width: 155px;
+    width: 145px;
     padding: 10px;
 }
 .movie-card img{
-    height: 180px;
+    height: 170px;
     margin-bottom: 10px;
 }
 #omdbMovies{
