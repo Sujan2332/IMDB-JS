@@ -23,11 +23,14 @@
 </style>
 </head>
 <body>
-    <nav ><h1 id="heading" onclick="home()">IMDb</h1>
-        <h2 id="welcome-message" ></h2>
-        <a href="./user.html" style="color: red;margin-left: 40px;font-size: 20px;font-weight: 900;border: 2px solid white;padding: 10px;border-radius: 35px;background-color: white;">Signup/Login?</a>
-    </nav>
-    <input type="text" id="searchbox" placeholder="Search for movies...">
+    <div class="navbar">
+        <nav ><h1 id="heading" onclick="home()">IMDb</h1>
+            <h2 id="welcome-message" ></h2>
+            <a href="./user.html" class="signup-login">Signup/ Login?</a>
+        </nav>
+    </div>
+    <div class="searchbar">
+    <input type="text" id="searchbox" placeholder="Search for movies..." autocomplete="off" >
     <input type="text" id="yearbox" placeholder="Year (optional)">
     <select id="typebox">
         <option value="">Type</option>
@@ -35,13 +38,13 @@
         <option value="series">Series</option>
         <option value="episode">Episode</option>
     </select>
+</div>
     <div id="suggestions"></div>
-    <button onclick="getmovies()">Search</button>
+    <button onclick="getmovies()" class="searchbtn">Search</button>
     <div class="block">
     <section id="omdbMovies">
     </section>
-    
-    <div id="pagination" style="flex-direction: column;height: 800px;justify-content: space-evenly;margin-right: 40px;"></div>
+    <div id="pagination"></div>
     </div>
     <script src="./app.js"></script>
 </body>

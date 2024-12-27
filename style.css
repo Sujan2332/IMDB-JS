@@ -10,6 +10,25 @@ body {
     height: 100%;
 }
 
+.signup-login {
+    color: red;
+    /* margin-left: 40px; */
+    font-size: 20px;
+    font-weight: 900;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 35px;
+    background-color: white;
+    text-decoration: none; /* Optional: Remove underline from the link */
+    display: inline-block; /* Ensure padding behaves consistently */
+  }
+  
+  .signup-login:hover {
+    background-color: red; /* Add hover effect for better interactivity */
+    color: white;
+    transition: 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
 #searchbox {
     padding: 12px;
     width: 900px;
@@ -74,26 +93,42 @@ select:focus {
 #searchbox:focus {
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
+.navbar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #000000 50%, #4c4b4a 100% );
+}
 nav{
     /* border: 2px solid red; */
     height: 100px;
-    width: 100%;
-    background: linear-gradient(to right, #000000 50%, #4c4b4a 100% );
+    width: 98%;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: start;
+    justify-content: space-between;
 }
 #heading{
     font-family: "Roboto Condensed", sans-serif;
     font-weight: 900;
     font-size: 45px;
     /* border: 2px solid yellow; */
-    width: 9%;
+    /* width: 9%; */
+    padding: 0px 5px;
     text-align: center;
     border-radius: 5%;
     background-color: #E2B616;
-    margin-left: 40px;
+    /* margin-left: 40px; */
     cursor: pointer;
+}
+.detailsnav{
+    /* border: 2px solid red; */
+    background: linear-gradient(to right, #000000 50%, #4c4b4a 100% );
+    width: 100%;
+}
+.detailsnav h1{
+    margin-left: 20px;
 }
 
 
@@ -122,7 +157,7 @@ button:hover {
 }
 #welcome-message{
     /* border: 2px solid red; */
-    margin-left: 400px;
+    /* margin-left: 400px; */
     margin-top: 40px;
     color: white;
     /* width: 1000px; */
@@ -254,10 +289,14 @@ h2:hover{
 }
 
 #movie-details{
-    
     width: 90%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
 
 h6{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -291,7 +330,7 @@ img:hover {
     align-items: center;
     height: 330px;
     background-color: #000000;
-    margin-left: 560px;
+    /* margin-left: 560px; */
     transition: transform 0.3s ease-in-out;
 }
 
@@ -307,6 +346,8 @@ img:hover {
     align-items: center;
     margin-top: 10px;
     margin-bottom: 40px;
+    flex-direction: column;
+    gap: 10px;
 }
 /* Pagination buttons */
 .page-button {
@@ -334,12 +375,22 @@ img:hover {
     color: white;
     font-weight: bold;
 }
+.searchbar{
+    display: flex;
+    flex-direction: column;
+}
+.block{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
 
 /* Responsive Design */
 @media (max-width: 600px) {
     .page-button {
-        padding: 8px 12px;
-        font-size: 14px;
+        padding: 0 px;
+        font-size: 8px;
     }
 }
 
@@ -349,15 +400,196 @@ img:hover {
         flex-wrap: wrap;
     }
 }
-
-.block{
+@media (max-width: 768px) {
+.navbar{
+    border: 2px solid rgb(0, 0, 0);
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.pagination{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    /* height: 200px; */
+    width: 100%;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+.detailsnav{
+    padding: 40px 0px;
+}
+.detailsnav h1{
+    position: absolute;
+    left: 10px;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0px;
+    padding:0px;
+    margin: 0px;
+    /* gap: 10px; */
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 90%;
+    height: auto;
+    padding: 10px 0px;
+}
+nav h1{
+    padding: 0px;
+    margin: 0px;
+}
+
+#heading{
+    font-size: 30px;
+    margin: 0px;
+}
+#welcome-message{
+    margin: 0px;
+    font-size: 25px;
+    text-decoration: underline;
+}
+.signup-login{
+    margin: 0px;
+    font-size: 15px;
+    border-radius: 10px;
+    padding: 5px;
+    width: 55px;
+    text-align: center;
+}
+.searchbar{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+    padding: 10px;
+    gap: 10px;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    margin-top: 10px;
+}
+.searchbar:hover #searchbox{
+    box-shadow: 6px 6px 10px white;
+}
+.searchbar #searchbox{
+    width: 400px;
+    margin: 0px;
+    height: 30px;
+    text-align: left;
+    position: relative;
+    font-size: 20px;
+    border-left: 5px solid black;
+    border-right: 5px solid black;
+}
+.searchbar #yearbox{
+    position: absolute;
+    top: 108.5px;
+    right: 20px;
+    width: 170px;
+    height: 28px;
+    text-align: left;
+    border-left: 5px solid black;
+    font-size: 20px;
+}
+.searchbar input{
+    margin: 0px;
+    width: 100%;
+}
+#typebox{
+    position: absolute;
+    right: 18px;
+    margin: 0px;
+    height: 53px;
+    padding: 0px;
+    width: 120px;
+    border-left: 5px solid black;
+    font-size: 20px;
+}
+.searchbtn{
+    margin: 0px;
+    padding: 2px 10px;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 18px;
+    box-shadow: 10px 10px 10px black;
+}
+.block{
+    /* border: 2px solid red; */
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 10px;
+    
+}
+section{
+    /* border: 2px solid red; */
+    padding: 0px;
+    margin: 0px;
+}
+#pagination{
+display: flex;
+flex-direction: row;
+/* border: 2px solid red; */
+gap: 0px;
+width: 98;
+margin:10px;
+margin-bottom: 0px;
+}
+/* Pagination buttons */
+.page-button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 3px 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 12px;
+    border-radius: 50%;
+    width: auto;
+    text-align: center;
+}
+
+.page-button:hover {
+    background-color: #666;
+    transform: translateY(-2px);
+}
+
+/* Active page button */
+.page-button.active {
+    background-color: #DA200F;
+    color: white;
+    font-weight: bold;
+}
+.movie-card{
+    /* border: 2px solid red; */
+    width: 170px;
+    padding: 10px;
+}
+.movie-card img{
+    height: 210px;
+    margin-bottom: 10px;
+}
+#omdbMovies{
+    /* border: 2px solid red; */
+    padding: 0px;
+}
+#suggestions {
+    /* border: 2px solid red; */
+    /* border: 1px solid #ccc; */
+    max-height: 200px;
+    overflow-y: auto;
+    /* position: absolute; */
+    background-color: white;
+    width: 200px;
+    /* z-index: 1000; */
+    /* margin-left: -670px; */
+    margin-left:-190px;
+    margin-bottom: 10px;
+    margin-top: -9px;
+    border: 1px solid black;
+}
 }
